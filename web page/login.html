@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: green;
+            background-image: url('https://th.bing.com/th/id/R.6a3df28e9e85aa45d7b7154aaabe311f?rik=tYjjwd7uXyfAIQ&riu=http%3a%2f%2fwallpapercave.com%2fwp%2fSW1YY93.jpg&ehk=rR0jy4vWtvPCzFN0bpqBxzgibc3p8Ab3w35OXMrv20U%3d&risl=&pid=ImgRaw&r=0'); 
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        .login-container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        .login-container h1 {
+            margin-bottom: 20px;
+        }
+        .login-container label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        .login-container input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .login-container button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .login-container button:hover {
+            background-color: #45a049;
+        }
+        .login-container input[type="text"],
+        .login-container input[type="password"] {
+            width: 80%;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h1>Login</h1>
+        <form id="loginForm" onsubmit="validateLogin(event)">
+            <label for="username">Username:</label>
+            <input type="text" id="username" required>
+            <br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" required>
+            <br>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
+    <script>
+        function validateLogin(event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Set the username and password
+            const correctUsername = 'itxzunairrajpoot';
+            const correctPassword = 'rajpoot';
+
+            if (username === correctUsername && password === correctPassword) {
+                // Redirect to the welcome page (or any other page you desire)
+                window.location.href = 'selection.html';
+            } else {
+                alert('Invalid username or password. Please try again.');
+            }
+        }
+    </script>
+</body>
+</html>

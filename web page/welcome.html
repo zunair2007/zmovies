@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BEAST Video</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: black;
+            background-image: url("hacking_screen_background.jpg"); /* Replace with the path to your hacking screen image */
+            background-size:100% cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        #video-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 640px;
+            height: 360px;
+            overflow: hidden;
+        }
+        #custom-video {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="video-container">
+        <video id="custom-video" loop controls>
+            <source src="your-video-file.mp4" type="video/mp4">
+            <source src="your-video-file.webm" type="video/webm">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <script>
+        const video = document.getElementById('custom-video');
+
+        // Handle arrow key presses
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowLeft') {
+                event.preventDefault(); // Prevent default behavior of arrow keys (e.g., scrolling)
+                skipBackward();
+            } else if (event.key === 'ArrowRight') {
+                event.preventDefault(); // Prevent default behavior of arrow keys (e.g., scrolling)
+                skipForward();
+            }
+        });
+
+        function skipBackward() {
+            video.currentTime = Math.max(video.currentTime - 5, 0);
+        }
+
+        function skipForward() {
+            video.currentTime = Math.min(video.currentTime + 5, video.duration);
+        }
+    </script>
+</body>
+</html>
